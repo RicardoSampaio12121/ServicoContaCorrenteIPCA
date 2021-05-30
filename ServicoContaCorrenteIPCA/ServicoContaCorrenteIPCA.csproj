@@ -16,4 +16,8 @@
       <Folder Include="Resources" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Logic\Logic.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -37,7 +37,8 @@ namespace ServicoContaCorrenteIPCA
 
         private void btnPendingRequests_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            lblCurrentForm.Text = "Pedidos Pendentes";
+            OpenChildForm(new PedidosPendentes());
         }
 
         private void btnPendingSolicitation_Click(object sender, EventArgs e)
@@ -60,6 +61,11 @@ namespace ServicoContaCorrenteIPCA
         private void pBoxLogo_Click(object sender, EventArgs e)
         {
             throw new System.NotImplementedException();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

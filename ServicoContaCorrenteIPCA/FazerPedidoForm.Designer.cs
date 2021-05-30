@@ -41,11 +41,11 @@ namespace ServicoContaCorrenteIPCA
             this.panelHoras = new System.Windows.Forms.Panel();
             this.btnSubmitHoursRequest = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtHorasDadas = new System.Windows.Forms.TextBox();
+            this.txtHoursHours = new System.Windows.Forms.TextBox();
             this.lblHorasDadas = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDateHours = new System.Windows.Forms.TextBox();
             this.lblData = new System.Windows.Forms.Label();
-            this.txtDocArt = new System.Windows.Forms.TextBox();
+            this.txtDocHours = new System.Windows.Forms.TextBox();
             this.lblDocH = new System.Windows.Forms.Label();
             this.panelArtigo.SuspendLayout();
             this.panelHoras.SuspendLayout();
@@ -66,6 +66,7 @@ namespace ServicoContaCorrenteIPCA
             this.panelArtigo.Name = "panelArtigo";
             this.panelArtigo.Size = new System.Drawing.Size(719, 193);
             this.panelArtigo.TabIndex = 0;
+            this.panelArtigo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelArtigo_Paint);
             // 
             // btnSubmitArticleRequest
             // 
@@ -75,6 +76,7 @@ namespace ServicoContaCorrenteIPCA
             this.btnSubmitArticleRequest.TabIndex = 8;
             this.btnSubmitArticleRequest.Text = "Submeter";
             this.btnSubmitArticleRequest.UseVisualStyleBackColor = true;
+            this.btnSubmitArticleRequest.Click += new System.EventHandler(this.btnSubmitArticleRequest_Click);
             // 
             // label1
             // 
@@ -141,11 +143,11 @@ namespace ServicoContaCorrenteIPCA
             // 
             this.panelHoras.Controls.Add(this.btnSubmitHoursRequest);
             this.panelHoras.Controls.Add(this.label2);
-            this.panelHoras.Controls.Add(this.txtHorasDadas);
+            this.panelHoras.Controls.Add(this.txtHoursHours);
             this.panelHoras.Controls.Add(this.lblHorasDadas);
-            this.panelHoras.Controls.Add(this.textBox1);
+            this.panelHoras.Controls.Add(this.txtDateHours);
             this.panelHoras.Controls.Add(this.lblData);
-            this.panelHoras.Controls.Add(this.txtDocArt);
+            this.panelHoras.Controls.Add(this.txtDocHours);
             this.panelHoras.Controls.Add(this.lblDocH);
             this.panelHoras.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelHoras.Location = new System.Drawing.Point(0, 193);
@@ -157,10 +159,11 @@ namespace ServicoContaCorrenteIPCA
             // 
             this.btnSubmitHoursRequest.Location = new System.Drawing.Point(100, 147);
             this.btnSubmitHoursRequest.Name = "btnSubmitHoursRequest";
-            this.btnSubmitHoursRequest.Size = new System.Drawing.Size(562, 34);
+            this.btnSubmitHoursRequest.Size = new System.Drawing.Size(576, 34);
             this.btnSubmitHoursRequest.TabIndex = 7;
             this.btnSubmitHoursRequest.Text = "Submeter";
             this.btnSubmitHoursRequest.UseVisualStyleBackColor = true;
+            this.btnSubmitHoursRequest.Click += new System.EventHandler(this.btnSubmitHoursRequest_Click);
             // 
             // label2
             // 
@@ -173,14 +176,14 @@ namespace ServicoContaCorrenteIPCA
             this.label2.TabIndex = 7;
             this.label2.Text = "HORAS EXTRA";
             // 
-            // txtHorasDadas
+            // txtHoursHours
             // 
-            this.txtHorasDadas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtHoursHours.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtHorasDadas.Location = new System.Drawing.Point(100, 118);
-            this.txtHorasDadas.Name = "txtHorasDadas";
-            this.txtHorasDadas.Size = new System.Drawing.Size(100, 23);
-            this.txtHorasDadas.TabIndex = 7;
+            this.txtHoursHours.Location = new System.Drawing.Point(100, 118);
+            this.txtHoursHours.Name = "txtHoursHours";
+            this.txtHoursHours.Size = new System.Drawing.Size(576, 23);
+            this.txtHoursHours.TabIndex = 7;
             // 
             // lblHorasDadas
             // 
@@ -191,14 +194,14 @@ namespace ServicoContaCorrenteIPCA
             this.lblHorasDadas.TabIndex = 6;
             this.lblHorasDadas.Text = "Horas dadas";
             // 
-            // textBox1
+            // txtDateHours
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtDateHours.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(100, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 5;
+            this.txtDateHours.Location = new System.Drawing.Point(100, 72);
+            this.txtDateHours.Name = "txtDateHours";
+            this.txtDateHours.Size = new System.Drawing.Size(576, 23);
+            this.txtDateHours.TabIndex = 5;
             // 
             // lblData
             // 
@@ -209,12 +212,12 @@ namespace ServicoContaCorrenteIPCA
             this.lblData.TabIndex = 4;
             this.lblData.Text = "Data";
             // 
-            // txtDocArt
+            // txtDocHours
             // 
-            this.txtDocArt.Location = new System.Drawing.Point(100, 28);
-            this.txtDocArt.Name = "txtDocArt";
-            this.txtDocArt.Size = new System.Drawing.Size(562, 23);
-            this.txtDocArt.TabIndex = 3;
+            this.txtDocHours.Location = new System.Drawing.Point(100, 28);
+            this.txtDocHours.Name = "txtDocHours";
+            this.txtDocHours.Size = new System.Drawing.Size(104, 23);
+            this.txtDocHours.TabIndex = 3;
             // 
             // lblDocH
             // 
@@ -253,11 +256,11 @@ namespace ServicoContaCorrenteIPCA
         private System.Windows.Forms.TextBox txtNDocArt;
         private System.Windows.Forms.Label lblNDocenteArt;
         private System.Windows.Forms.Panel panelHoras;
-        private System.Windows.Forms.TextBox txtHorasDadas;
+        private System.Windows.Forms.TextBox txtHoursHours;
         private System.Windows.Forms.Label lblHorasDadas;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDateHours;
         private System.Windows.Forms.Label lblData;
-        private System.Windows.Forms.TextBox txtDocArt;
+        private System.Windows.Forms.TextBox txtDocHours;
         private System.Windows.Forms.Label lblDocH;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

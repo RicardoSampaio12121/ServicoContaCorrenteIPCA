@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logic.Interfaces
 {
-    interface IArticleRequest : IRequest
+    public interface IArticleRequest : IRequest
     {
     }
 }

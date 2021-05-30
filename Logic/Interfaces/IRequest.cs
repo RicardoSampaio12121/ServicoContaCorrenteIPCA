@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Logic.Interfaces
 {
-    interface IRequest
+    public interface IRequest
     {
-        int MakeRequest();
+        void MakeRequest();
     }
 }

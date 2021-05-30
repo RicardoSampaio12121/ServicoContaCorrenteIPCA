@@ -6,8 +6,9 @@ using System.Windows.Forms;
 
 namespace ServicoContaCorrenteIPCA
 {
-    static class Program
+    public static class Program
     {
+        public static float value = 0;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
