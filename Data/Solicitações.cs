@@ -4,43 +4,39 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Data.Connector;
 using Npgsql;
 
 namespace Data
 {
-    public static class RequestCreditsArticle
+    public static class Solicitações
     {
         /// <summary>
         /// Insere na tabela
         /// </summary>
-        /// <param name="cod"></param>
-        /// <param name="art"></param>
-        /// <param name="rev"></param>
-        public static void InsertRequest(int cod, string art, string rev)
+        /// <param name="cod_doc"></param>
+        /// <param name="motivo"></param>
+        /// <param name="valor"></param>
+        public static void Insert(int cod_doc, string motivo, float valor)
         {
-            //NpgsqlConnection connection = Connector.Connector.OpenConnection();
-
             using var con = new NpgsqlConnection("Host=localhost;Username=postgres;Password=2862;Database=IPCACC");
             con.Open();
 
-            var sql = "INSERT INTO cc.pedido_credito_artigo (cod_docente, artigo, revista, request_date) VALUES (@cod_doc, @art, @Rev, @rd)";
+            var sql = "INSERT INTO cc.solicitacoes (cod_docente, motivo, valor) VALUES (@cod_doc, @mot, @val)";
 
             using var cmd = new NpgsqlCommand(sql, con);
 
-            cmd.Parameters.AddWithValue("@cod_doc", cod);
-            cmd.Parameters.AddWithValue("@art", art);
-            cmd.Parameters.AddWithValue("@Rev", rev);
-            cmd.Parameters.AddWithValue("@rd", DateTime.Now);
+            cmd.Parameters.AddWithValue("@cod_doc", cod_doc);
+            cmd.Parameters.AddWithValue("@mot", motivo);
+            cmd.Parameters.AddWithValue("@val", valor);
 
             cmd.Prepare();
             cmd.ExecuteNonQuery();
 
-           Connector.Connector.CloseConnection(con);
+            Connector.Connector.CloseConnection(con);
         }
 
         /// <summary>
-        /// Retorna pedidos da tabela
+        /// Retorna as solicitações
         /// </summary>
         /// <returns></returns>
         public static DataTable Get()
@@ -48,8 +44,9 @@ namespace Data
             var output = new DataTable();
 
             using var con = new NpgsqlConnection("Host=localhost;Username=postgres;Password=2862;Database=IPCACC");
-            var sql = "SELECT * FROM cc.pedido_credito_artigo";
+            con.Open();
 
+            var sql = $"SELECT * FROM cc.solicitacoes";
             using var cmd = new NpgsqlCommand(sql, con);
             using var da = new NpgsqlDataAdapter(cmd);
             da.Fill(output);
@@ -57,17 +54,19 @@ namespace Data
         }
 
         /// <summary>
-        /// Retorna pedidos por codigo de docente
+        /// Retorna a solicitação de um docente
         /// </summary>
-        /// <param name="cod"></param>
+        /// <param name="cod_docente"></param>
         /// <returns></returns>
-        public static DataTable GetByCodTeacher(int cod)
+        public static DataTable GetSolicitationsById(int cod_docente)
         {
             var output = new DataTable();
 
             using var con = new NpgsqlConnection("Host=localhost;Username=postgres;Password=2862;Database=IPCACC");
-            var sql = $"SELECT * FROM cc.pedido_credito_artigo WHERE cod_docente = {cod}";
+            con.Open();
 
+            //var sql = "SELECT * From cc.solicitacoes INNER JOIN cc.verbas on cc.solicitacoes.cod_docente = cc.verbas.cod_docente INNER JOIN cc.pedidos_aceites_horas on cc.verbas_horas.id_horas_aceites = cc.pedidos_aceites_horas.id WHERE cc.solicitacoes.cod_docente = '2'";
+            var sql = $"SELECT * FROM cc.solicitacoes WHERE cod_docente = {cod_docente}";
             using var cmd = new NpgsqlCommand(sql, con);
             using var da = new NpgsqlDataAdapter(cmd);
             da.Fill(output);
@@ -75,13 +74,13 @@ namespace Data
         }
 
         /// <summary>
-        /// Remove pedido da tabela
+        /// Remove da tabela
         /// </summary>
-        /// <param name="cod"></param>
-        public static void Delete(int cod)
+        /// <param name="cod_sol"></param>
+        public static void Delete(int cod_sol)
         {
             using var con = new NpgsqlConnection("Host=localhost;Username=postgres;Password=2862;Database=IPCACC");
-            var sql = $"DELETE FROM cc.pedido_credito_artigo WHERE cod_pedido = {cod}";
+            var sql = $"DELETE FROM cc.solicitacoes WHERE id = {cod_sol}";
             con.Open();
             using var cmd = new NpgsqlCommand(sql, con);
             cmd.Prepare();

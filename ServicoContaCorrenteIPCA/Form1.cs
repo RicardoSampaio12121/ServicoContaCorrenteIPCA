@@ -18,6 +18,10 @@ namespace ServicoContaCorrenteIPCA
         }
 
         private Form activeForm = null;
+        /// <summary>
+        /// Abre o formulário pedido
+        /// </summary>
+        /// <param name="childForm"></param>
         private void OpenChildForm(Form childForm)
         {
             if(activeForm != null)
@@ -35,17 +39,33 @@ namespace ServicoContaCorrenteIPCA
 
         }
 
+        /// <summary>
+        /// Abre o formulário de pedidos de creditos pendentes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPendingRequests_Click(object sender, EventArgs e)
         {
             lblCurrentForm.Text = "Pedidos Pendentes";
             OpenChildForm(new PedidosPendentes());
         }
 
+        /// <summary>
+        /// Abre o formulário de pedidos de solicitação pendentes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPendingSolicitation_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            lblCurrentForm.Text = "Solicitações Pendentes";
+            OpenChildForm(new PendingSolicitations());
         }
 
+        /// <summary>
+        /// Abre o formulario de fazer pedidos de creditos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMakeRequest_Click(object sender, EventArgs e)
         {
             lblCurrentForm.Text = "Fazer Pedido";
@@ -53,19 +73,15 @@ namespace ServicoContaCorrenteIPCA
 
         }
 
+        /// <summary>
+        /// Abre o formulario de fazer solicitações
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMakeSolicitation_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
-        }
-
-        private void pBoxLogo_Click(object sender, EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            lblCurrentForm.Text = "Fazer Solicitação";
+            OpenChildForm(new FazerSolicitaçãoForm());
         }
     }
 }

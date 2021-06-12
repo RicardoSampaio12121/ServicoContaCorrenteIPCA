@@ -23,21 +23,37 @@ namespace Logic.Entities
             this._hours = hours;
         }
 
+        /// <summary>
+        /// Faz um pedido de credito
+        /// </summary>
         public void MakeRequest()
         {
             RequestCreditsHours.InsertRequest(_teacherId, DateTime.Parse(_date), _hours);
         }
 
+        /// <summary>
+        /// Retorna todos os pedidos de credito
+        /// </summary>
+        /// <returns></returns>
         public DataTable Get()
         {
             return RequestCreditsHours.Get();
         }
         
+        /// <summary>
+        /// Retorna todos os pedidos de credito por código de docente
+        /// </summary>
+        /// <param name="cod"></param>
+        /// <returns></returns>
         public DataTable GetByCodTeacher(int cod)
         {
             return RequestCreditsHours.GetByCodTeacher(cod);
         }
 
+        /// <summary>
+        /// Remove um pedido de credito
+        /// </summary>
+        /// <param name="cod"></param>
         public void Remove(int cod)
         {
             RequestCreditsHours.Remove(cod);

@@ -18,11 +18,11 @@ namespace ServicoContaCorrenteIPCA
             InitializeComponent();
         }
 
-        private void ValorForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Recolhe o valor e guarda-o numa variável global
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             Global.Value = float.Parse(textBox1.Text);

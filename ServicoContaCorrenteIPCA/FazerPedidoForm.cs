@@ -20,29 +20,81 @@ namespace ServicoContaCorrenteIPCA
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Faz um pedido de credito por um artigo publicado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSubmitArticleRequest_Click(object sender, EventArgs e)
         {
-            int teacherId = int.Parse(txtNDocArt.Text); //TODO: Check if it is a valid ID
-            string articleName = txtArtigo.Text;
-            string magazine = txtRevista.Text;
+            lblArtError.Text = "";
 
-            var creditsRequest = new ArticleRequest(teacherId, articleName, magazine);
-            creditsRequest.MakeRequest();
+            if (txtArtigo.Text == "" || txtRevista.Text == "" || txtNDocArt.Text == "")
+            {
+                lblArtError.Text = "Todos os campos devem ser preenchidos!";
+            }
+            else
+            {
+                if (!int.TryParse(txtNDocArt.Text, out var cod))
+                {
+                    lblArtError.Text = "Código de docente inválido!";
+                }
+                else
+                {
+                    int teacherId = cod; 
+                    string articleName = txtArtigo.Text;
+                    string magazine = txtRevista.Text;
+
+                    var creditsRequest = new ArticleRequest(teacherId, articleName, magazine);
+                    creditsRequest.MakeRequest();
+
+                    txtArtigo.Text = "";
+                    txtNDocArt.Text = "";
+                    txtRevista.Text = "";
+                    MessageBox.Show("Pedido efetuado com sucesso!");
+                }
+            }
         }
 
+        /// <summary>
+        /// Faz um pedido de credito por horas extra
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSubmitHoursRequest_Click(object sender, EventArgs e)
         {
-            int teacherId = int.Parse(txtDocHours.Text);
-            string date = txtDateHours.Text;
-            float hours = float.Parse(txtHoursHours.Text);
+            lblHEError.Text = "";
 
-            var hoursRequest = new HoursRequest(teacherId, date, hours);
-            hoursRequest.MakeRequest();
-        }
+            if (txtDocHours.Text == "" || txtHoursHours.Text == "" || txtDateHours.Text == "")
+            {
+                lblHEError.Text = "Todos os campos devem ser preenchidos!";
+            }
+            else
+            {
+                if (!int.TryParse(txtDocHours.Text, out var cod))
+                {
+                    lblHorasDadas.Text = "Código de docente inválido";
+                }
+                else if(!float.TryParse(txtHoursHours.Text, out var hoursO))
+                {
+                    lblHorasDadas.Text = "Número de horas inválido";
+                }
+                else
+                {
+                    int teacherId = cod;
+                    string date = txtDateHours.Text;
+                    float hours = hoursO;
 
-        private void panelArtigo_Paint(object sender, PaintEventArgs e)
-        {
+                    var hoursRequest = new HoursRequest(teacherId, date, hours);
+                    hoursRequest.MakeRequest();
 
+                    txtDocHours.Text = "";
+                    txtDateHours.Text = "";
+                    txtHoursHours.Text = "";
+
+                    MessageBox.Show("Pedido efetuado com sucesso!");
+                }
+            }
         }
     }
 }

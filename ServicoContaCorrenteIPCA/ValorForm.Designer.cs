@@ -71,7 +71,6 @@ namespace ServicoContaCorrenteIPCA
             this.Controls.Add(this.label1);
             this.Name = "ValorForm";
             this.Text = "ValorForm";
-            this.Load += new System.EventHandler(this.ValorForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

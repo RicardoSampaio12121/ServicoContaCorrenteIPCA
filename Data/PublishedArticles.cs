@@ -9,6 +9,13 @@ namespace Data
 {
     public static class PublishedArticles
     {
+        /// <summary>
+        /// Insere na tabela
+        /// </summary>
+        /// <param name="cod"></param>
+        /// <param name="art"></param>
+        /// <param name="rev"></param>
+        /// <param name="dt"></param>
         public static void Insert(int cod, string art, string rev, DateTime dt)
         {
             using var con = new NpgsqlConnection("Host=localhost;Username=postgres;Password=2862;Database=IPCACC");

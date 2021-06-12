@@ -39,6 +39,8 @@ namespace ServicoContaCorrenteIPCA
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAceitar = new System.Windows.Forms.Button();
             this.btnRejeitar = new System.Windows.Forms.Button();
+            this.lblCodError = new System.Windows.Forms.Label();
+            this.lblErrorLine = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -140,11 +142,29 @@ namespace ServicoContaCorrenteIPCA
             this.btnRejeitar.UseVisualStyleBackColor = true;
             this.btnRejeitar.Click += new System.EventHandler(this.btnRejeitar_Click);
             // 
+            // lblCodError
+            // 
+            this.lblCodError.AutoSize = true;
+            this.lblCodError.Location = new System.Drawing.Point(12, 53);
+            this.lblCodError.Name = "lblCodError";
+            this.lblCodError.Size = new System.Drawing.Size(0, 15);
+            this.lblCodError.TabIndex = 10;
+            // 
+            // lblErrorLine
+            // 
+            this.lblErrorLine.AutoSize = true;
+            this.lblErrorLine.Location = new System.Drawing.Point(12, 65);
+            this.lblErrorLine.Name = "lblErrorLine";
+            this.lblErrorLine.Size = new System.Drawing.Size(0, 15);
+            this.lblErrorLine.TabIndex = 11;
+            // 
             // PedidosPendentes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(719, 385);
+            this.Controls.Add(this.lblErrorLine);
+            this.Controls.Add(this.lblCodError);
             this.Controls.Add(this.btnRejeitar);
             this.Controls.Add(this.btnAceitar);
             this.Controls.Add(this.btnSearch);
@@ -176,5 +196,7 @@ namespace ServicoContaCorrenteIPCA
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnAceitar;
         private System.Windows.Forms.Button btnRejeitar;
+        private System.Windows.Forms.Label lblCodError;
+        private System.Windows.Forms.Label lblErrorLine;
     }
 }

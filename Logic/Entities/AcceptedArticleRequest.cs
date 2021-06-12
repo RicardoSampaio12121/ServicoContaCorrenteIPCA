@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data;
 
 namespace Logic.Entities
 {
@@ -14,6 +16,8 @@ namespace Logic.Entities
         private string _magazine;
         private DateTime _date;
         float _value;
+
+        public AcceptedArticleRequest() { }
 
         public AcceptedArticleRequest(int cod_pedido, int teacher_Id, string article, string magazine, DateTime date, float value)
         {
@@ -32,7 +36,24 @@ namespace Logic.Entities
         public DateTime Date { get => _date; }
         public float Value { get => _value; }
 
+        /// <summary>
+        /// Retorna todos os pedidos de credito aceites
+        /// </summary>
+        /// <returns></returns>
+        public DataTable Get()
+        {
+            return AcceptedRequestCreditsArticle.Get();
+        }
 
+        /// <summary>
+        /// Retorna todos os pedidos de credito aceites por docente
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public DataTable GetById(int id)
+        {
+            return AcceptedRequestCreditsArticle.GetById(id);
+        }
 
 
 

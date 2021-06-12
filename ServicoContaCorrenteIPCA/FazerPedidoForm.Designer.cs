@@ -30,6 +30,7 @@ namespace ServicoContaCorrenteIPCA
         private void InitializeComponent()
         {
             this.panelArtigo = new System.Windows.Forms.Panel();
+            this.lblArtError = new System.Windows.Forms.Label();
             this.btnSubmitArticleRequest = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtRevista = new System.Windows.Forms.TextBox();
@@ -39,6 +40,7 @@ namespace ServicoContaCorrenteIPCA
             this.txtNDocArt = new System.Windows.Forms.TextBox();
             this.lblNDocenteArt = new System.Windows.Forms.Label();
             this.panelHoras = new System.Windows.Forms.Panel();
+            this.lblHEError = new System.Windows.Forms.Label();
             this.btnSubmitHoursRequest = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtHoursHours = new System.Windows.Forms.TextBox();
@@ -53,6 +55,7 @@ namespace ServicoContaCorrenteIPCA
             // 
             // panelArtigo
             // 
+            this.panelArtigo.Controls.Add(this.lblArtError);
             this.panelArtigo.Controls.Add(this.btnSubmitArticleRequest);
             this.panelArtigo.Controls.Add(this.label1);
             this.panelArtigo.Controls.Add(this.txtRevista);
@@ -66,7 +69,14 @@ namespace ServicoContaCorrenteIPCA
             this.panelArtigo.Name = "panelArtigo";
             this.panelArtigo.Size = new System.Drawing.Size(719, 193);
             this.panelArtigo.TabIndex = 0;
-            this.panelArtigo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelArtigo_Paint);
+            // 
+            // lblArtError
+            // 
+            this.lblArtError.AutoSize = true;
+            this.lblArtError.Location = new System.Drawing.Point(219, 36);
+            this.lblArtError.Name = "lblArtError";
+            this.lblArtError.Size = new System.Drawing.Size(0, 15);
+            this.lblArtError.TabIndex = 9;
             // 
             // btnSubmitArticleRequest
             // 
@@ -141,6 +151,7 @@ namespace ServicoContaCorrenteIPCA
             // 
             // panelHoras
             // 
+            this.panelHoras.Controls.Add(this.lblHEError);
             this.panelHoras.Controls.Add(this.btnSubmitHoursRequest);
             this.panelHoras.Controls.Add(this.label2);
             this.panelHoras.Controls.Add(this.txtHoursHours);
@@ -154,6 +165,14 @@ namespace ServicoContaCorrenteIPCA
             this.panelHoras.Name = "panelHoras";
             this.panelHoras.Size = new System.Drawing.Size(719, 193);
             this.panelHoras.TabIndex = 1;
+            // 
+            // lblHEError
+            // 
+            this.lblHEError.AutoSize = true;
+            this.lblHEError.Location = new System.Drawing.Point(219, 36);
+            this.lblHEError.Name = "lblHEError";
+            this.lblHEError.Size = new System.Drawing.Size(0, 15);
+            this.lblHEError.TabIndex = 8;
             // 
             // btnSubmitHoursRequest
             // 
@@ -266,5 +285,7 @@ namespace ServicoContaCorrenteIPCA
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSubmitArticleRequest;
         private System.Windows.Forms.Button btnSubmitHoursRequest;
+        private System.Windows.Forms.Label lblArtError;
+        private System.Windows.Forms.Label lblHEError;
     }
 }

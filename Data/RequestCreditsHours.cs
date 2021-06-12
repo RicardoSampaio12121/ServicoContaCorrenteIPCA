@@ -10,6 +10,7 @@ namespace Data
 {
     public class RequestCreditsHours
     {
+        //Insere na tabela
         public static void InsertRequest(int cod, DateTime date, float hours)
         {
             using var con = new NpgsqlConnection("Host=localhost;Username=postgres;Password=2862;Database=IPCACC");
@@ -30,6 +31,10 @@ namespace Data
             Connector.Connector.CloseConnection(con);
         }
 
+        /// <summary>
+        /// Retorna pedidos da tabela
+        /// </summary>
+        /// <returns></returns>
         public static DataTable Get()
         {
             var output = new DataTable();
@@ -43,6 +48,11 @@ namespace Data
             return output;
         }
 
+        /// <summary>
+        /// Retorna pedidos por codigo de docente
+        /// </summary>
+        /// <param name="cod"></param>
+        /// <returns></returns>
         public static DataTable GetByCodTeacher(int cod)
         {
             var output = new DataTable();
@@ -56,6 +66,10 @@ namespace Data
             return output;
         }
 
+        /// <summary>
+        /// Remove um pedido
+        /// </summary>
+        /// <param name="cod"></param>
         public static void Remove(int cod)
         {
             using var con = new NpgsqlConnection("Host=localhost;Username=postgres;Password=2862;Database=IPCACC");

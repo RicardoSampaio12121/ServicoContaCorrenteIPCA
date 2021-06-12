@@ -4,10 +4,19 @@
     <Compile Update="FazerPedidoForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FazerSolicitaçãoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="PedidosPendentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PendingSolicitations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SolicitacaoInformacao.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="ValorForm.cs">

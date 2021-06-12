@@ -133,7 +133,6 @@
             this.pBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pBoxLogo.TabIndex = 0;
             this.pBoxLogo.TabStop = false;
-            this.pBoxLogo.Click += new System.EventHandler(this.pBoxLogo_Click);
             // 
             // panelTop
             // 
@@ -174,7 +173,6 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.panelSide.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pBoxLogo)).EndInit();
